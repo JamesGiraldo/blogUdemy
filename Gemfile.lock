@@ -44,6 +44,9 @@ GEM
     autoprefixer-rails (9.7.6)
       execjs
     bindex (0.8.1)
+    boostrap-sass (0.0.2)
+      bootstrap-sass
+    boostrap_modal_rails (0.3.0)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -202,7 +205,8 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
-  bootstrap-sass
+  boostrap-sass (~> 0.0.2)
+  boostrap_modal_rails (~> 0.3.0)
   byebug
   capybara (>= 2.15)
   coffee-rails (~> 4.2)

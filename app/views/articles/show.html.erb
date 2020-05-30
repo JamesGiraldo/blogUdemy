@@ -1,2 +1,5 @@
-<h1 class="text-center">Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<%= render "partials/notificaciones" %>
+<h1><%= @article.title %></h1>
+<h3><%= @article.body %></h3>
+<%= link_to "Atras" , root_path %>
+<%= link_to "Editar" , edit_article_path(@article) %>

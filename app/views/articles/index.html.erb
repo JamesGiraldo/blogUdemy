@@ -1,4 +1,9 @@
-<% @articulos.each do |articulo| %>
-  <h1 class="text-center"> <%= articulo.title %> </h1>
-  <h3 class="text"> <%= articulo.body %> </h3>
-<%end%>
+<%= render "partials/notificaciones" %>
+<div class="">
+    <% @articles.each do |articulo| %>
+        <h1 class="text"><%= link_to articulo.title , articulo  %></h1>
+        <h3 class="text"> <%= articulo.body%> </h3>
+         <%= link_to "Editar", edit_article_path(articulo) %>
+         <%= link_to "Eliminar #{articulo.title}", articulo, method: :delete, data: {confirm: "¿Estas Seguro De Eliminar El Articulo #{articulo.title}?"} %>
+    <%end%>
+</div>

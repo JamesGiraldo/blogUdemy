@@ -1,2 +1,6 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% @articles.each do |articulo| %>
+	<div class="jumbotron color-a">
+		<h2 class="text-center"><%= link_to articulo.title , articulo, class:"title-text" %></h2>
+		<p class="text-center"><%= articulo.body%></p>
+	</div>
+<%end%>
