@@ -40,6 +40,12 @@ body{
     color: $color !important;
   }
 }
+nav{
+  margin-bottom: 10px;
+}
+.list-group{
+  margin-bottom: 10px;
+}
 .space-a{
   margin-top: 15px;
 }
@@ -55,5 +61,5 @@ body{
 }
 .col-form-label{
   font-style: italic;
-  font-size: 18px;
+  font-size: 18px;  
 }

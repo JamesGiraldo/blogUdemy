@@ -6,7 +6,7 @@
           <h1 class="text"><%= link_to articulo.title , articulo  %></h1>
           <h3 class="text"> <%= articulo.body%> </h3>
           <%= link_to "Editar", edit_article_path(articulo), class: "btn btn-warning" %>
-          <%= link_to "Eliminar #{articulo.title}", articulo, method: :delete, data: {confirm: "¿Estas Seguro De Eliminar El Articulo #{articulo.title}?"}, class: "btn btn-danger" %>
+          <%= link_to "Eliminar", articulo, method: :delete, data: {confirm: "¿Estas Seguro De Eliminar El Articulo #{articulo.title}?"}, class: "btn btn-danger" %>
        </div>
       </div>
     <%end%>

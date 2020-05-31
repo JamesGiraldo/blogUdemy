@@ -15,7 +15,16 @@
   <body>
     <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
      <%= render "partials/navbar" %>
-     <%= render "partials/notificaciones" %>
-     <%= yield %> 
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-md-2">
+           <%= render "partials/panel" %>
+         </div>
+         <div class="col">
+           <%= render "partials/notificaciones" %>
+           <%= yield %>
+         </div>
+       </div>
+     </div>
   </body>
 </html>
