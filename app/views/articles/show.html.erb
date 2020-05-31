@@ -1,5 +1,6 @@
-<%= render "partials/notificaciones" %>
-<h1><%= @article.title %></h1>
-<h3><%= @article.body %></h3>
-<%= link_to "Atras" , root_path %>
-<%= link_to "Editar" , edit_article_path(@article) %>
+<div class="jumbotron">
+  <h1><%= @article.title %></h1>
+  <h3><%= @article.body %></h3>
+  <%= link_to "Atras" , root_path, class: "btn btn-info" %>
+  <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning" %>
+</div>

@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- */ 
+ */
 
  $title:   #000;
  $fondo:   #f9f9f9;
@@ -23,6 +23,7 @@
  $colors: (
    title:   $title,
    fondo:   $fondo,
+   jumbotron: #F3F2B4,
    color-a: $color-a,
    color-b: $color-b,
    color-c: $color-c,
@@ -39,6 +40,20 @@ body{
     color: $color !important;
   }
 }
-.nav-link{
-  color: white !important;
+.space-a{
+  margin-top: 15px;
+}
+.space-title{
+  margin-top: 20px !important;
+  margin-bottom: 40px !important;
+}
+.space-label-right{
+    padding: 15px;
+}
+.form-title{
+  font-style: bold;
+}
+.col-form-label{
+  font-style: italic;
+  font-size: 18px;
 }
