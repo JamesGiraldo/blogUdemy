@@ -5,7 +5,17 @@
         <fieldset>
           <h1 class="text-center space-title form-title"><%= "#{titulo} Articulo" %></h1>
           <div class="">
-            <%= form_with(model: article) do |form| %>
+            <%= form_with(model: article, local: true) do |form| %>
+                <% if article.errors.any? %>
+                    <div class="" id="error_explanation">
+                      <h2 class=""> <%= pluralize(article.errors.count, "error") %> Prohibido Guardar De Esta Forma El Articulo: </h2>
+                      <ul class="">
+                        <% article.errors.full_messages.each do |message| %>
+                            <li class=""> <%= message %> </li>
+                        <%end%>
+                      </ul>
+                    </div>
+                <%end%>
                 <div class="form-group row">
                   <%= form.label "Titulo: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
                   <%= form.text_field :title, class: "col-md-4 form-control" %>

@@ -21,8 +21,7 @@ class ArticlesController < ApplicationController
         format.html {redirect_to @article , notice: "Articulo #{@article.title} Modificado."}
         format.json {render :show, estatus: :created, location: @article}
       else
-        render :edit, notice: "Problemas Al Modificar Articulo #{@article.title}."
-        format.html {render :edit, notice: "Problemas Con La Grabacion."}
+        format.html {render :edit}
         format.json {render json: @article.errors, status: :unprocessable_entity}
       end
     end
@@ -35,7 +34,7 @@ class ArticlesController < ApplicationController
          format.html {redirect_to @article , notice: "Articulo #{@article.title} Registrado."}
          format.json {render :show, estatus: :created, location: @article}
       else
-         format.html {redirect_to :new , notice: "Problemas Con La Grabacion."}
+         format.html { render :new }
          format.json {render json: @article.errors, status: :unprocessable_entity}
       end
     end
