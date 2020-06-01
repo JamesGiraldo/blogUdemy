@@ -5,18 +5,24 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Inicio", root_path , class: "nav-link" %>
+      <li class="nav-item ">
+        <%= link_to "Inicio", root_path , class: "nav-link bueno" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Categorias", categories_path , class: "nav-link" %>
+      <li class="nav-item ">
+        <%= link_to "Categorias", categories_path , class: "nav-link bueno" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+      <li class="nav-item ">
+        <a class="nav-link bueno" href="#">Pricing</a>
       </li>
-      <li class="nav-item">
-        <%= link_to "Contactos", welcome_contactos_path , class: "nav-link" %>
+      <li class="nav-item ">
+        <%= link_to "Contactos", welcome_contactos_path , class: "nav-link bueno" %>
       </li>
+      <% if user_signed_in? %>
+        <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link bueno" %>
+      <%else%>
+        <%= link_to "Iniciar Sesión", new_user_session_path, class: "nav-link bueno"  %>
+        <%= link_to "Registrarse", new_user_registration_path, class: "nav-link bueno" %>
+      <%end%>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">

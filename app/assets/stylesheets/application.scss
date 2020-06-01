@@ -45,6 +45,8 @@ nav{
 }
 .list-group{
   margin-bottom: 10px;
+  overflow-y: scroll;
+  height: 830px;
 }
 .space-a{
   margin-top: 15px;
@@ -61,5 +63,8 @@ nav{
 }
 .col-form-label{
   font-style: italic;
-  font-size: 18px;  
+  font-size: 18px;
+}
+.bueno{
+  color: white !important;
 }

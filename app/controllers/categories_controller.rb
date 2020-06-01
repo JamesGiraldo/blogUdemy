@@ -24,8 +24,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
-
+    @category = current_user.categories.new(category_params)
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'La categoría se creó correctamente.' }
@@ -56,7 +55,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'La categoría fue destruida con éxito.' }
+      format.html { redirect_to categories_url, alert: 'La categoría fue destruida con éxito.' }
       format.json { head :no_content }
     end
   end

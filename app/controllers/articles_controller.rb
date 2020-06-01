@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   def index
     @articles = Article.all
@@ -17,24 +18,24 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html {redirect_to @article , alert: "Articulo #{@article.title} Modificado."}
+        format.html {redirect_to @article , notice: "Articulo #{@article.title} Modificado."}
         format.json {render :show, estatus: :created, location: @article}
       else
-        render :edit, alert: "Problemas Al Modificar Articulo #{@article.title}."
-        format.html {render :edit, alert: "Problemas Con La Grabacion."}
+        render :edit, notice: "Problemas Al Modificar Articulo #{@article.title}."
+        format.html {render :edit, notice: "Problemas Con La Grabacion."}
         format.json {render json: @article.errors, status: :unprocessable_entity}
       end
     end
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
-         format.html {redirect_to @article , alert: "Articulo #{@article.title} Registrado."}
+         format.html {redirect_to @article , notice: "Articulo #{@article.title} Registrado."}
          format.json {render :show, estatus: :created, location: @article}
       else
-         format.html {redirect_to :new , alert: "Problemas Con La Grabacion."}
+         format.html {redirect_to :new , notice: "Problemas Con La Grabacion."}
          format.json {render json: @article.errors, status: :unprocessable_entity}
       end
     end

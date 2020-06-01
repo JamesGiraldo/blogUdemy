@@ -56,3 +56,5 @@ gem 'boostrap-sass', '~> 0.0.2'
 gem 'boostrap_modal_rails', '~> 0.3.0'
 gem 'simple_form'
 gem 'country_select'
+gem 'devise'
+gem "table_print"
