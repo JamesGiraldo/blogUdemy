@@ -5,8 +5,14 @@
         <div class="jumbotron">
           <h1 class="text"><%= link_to articulo.title , articulo  %></h1>
           <h3 class="text"> <%= articulo.body%> </h3>
-          <%= link_to "Editar", edit_article_path(articulo), class: "btn btn-warning" %>
-          <%= link_to "Eliminar", articulo, method: :delete, data: {confirm: "¿Estas Seguro De Eliminar El Articulo #{articulo.title}?"}, class: "btn btn-danger" %>
+          <% if user_signed_in? %>
+            <% if current_user.is_editor? %>
+              <%= link_to "Editar", edit_article_path(articulo), class: "btn btn-warning" %>
+            <%end%>
+            <% if current_user.is_admin? %>
+              <%= link_to "Eliminar", articulo, method: :delete, data: {confirm: "¿Estas Seguro De Eliminar El Articulo #{articulo.title}?"}, class: "btn btn-danger" %>
+            <%end%>
+          <%end%>
        </div>
       </div>
     <%end%>
