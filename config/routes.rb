@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "articles/search"
-  root 'articles#index'
-  get 'welcome/contactos'
+  devise_for :users
   resources :articles
   resources :categories
+  post "contacts/new"
+  get 'welcome/contactos'
+  resources :contacts, only: [:create, :new]
+  root 'articles#index'
 end
