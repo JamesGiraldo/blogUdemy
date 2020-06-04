@@ -1,23 +1,32 @@
 <style type="text/css" media="screen">
   .jumbotron{
+    margin-top: 10px !important;
+  }
+  .category-show{
     background: <%= @category.color %> !important;
   }
 </style>
-<div class="jumbotron">
-  <div class="">
-    <% if !@category.user.nil? %>
-      <p class="">Creado Por <strong> <%= @category.user.email %> </strong></p>
-    <%end%>
-  </div>
-  <div class="">
-    <h1><strong><%= @category.name %></strong></h1>
-  </div>
-  <div class="">
-    <h3><%= @category.color %></h3>
-  </div>
-  <div class="">
-    <%= link_to 'Edit', edit_category_path(@category), class: "btn btn-warning" %>
-    <%= link_to 'Back', categories_path, class: "btn btn-info" %>
-    <%= link_to 'Eliminar', { :action => :destroy, :id => @category.id }, :method => :delete, :data => { :confirm => 'Estás seguro? de Eliminar Esta Categoria #{@category.name} '} , class: "btn btn-danger"%>
-  </div>
+<div class="category-show">
+  <h1 class="text-center"><strong><%= @category.name %></strong></h1>
+  <h5 class="text-center">
+    <div class="">
+      <% if !@category.user.nil? %>
+        Creado Por <strong> <%= @category.user.email %> </strong>
+      <%end%>
+    </div>
+  </h5>
+</div>
+<div class="row">
+  <% @category.articles.each do |article| %>
+      <div class="col-md-4">
+        <div class="jumbotron">
+            <h2 class=""> <%= article.title %> </h2>
+            <p class=""> <%= truncate(article.body, length:100) %> </p>
+            <%= link_to 'Ver Mas', article,  class: "btn btn-info" %>
+            <% if user_signed_in? && current_user.is_editor? %>
+               <%= link_to 'Editar', edit_category_path(@category), class: "btn btn-warning" %>
+            <%end%>
+        </div>
+      </div>
+  <%end%>
 </div>

@@ -1,3 +1,23 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 4rem !important;
+  }
+}
+.espaciotabla{
+  margin-top: 10px;
+}
+
+.search-title:hover{
+  font-size: 49px !important;
+  color: black;
+}
+.search-fondo:hover{
+  background-color: #66CCFF;
+}
+.search-jumbotron{
+  padding-top: 13px;
+  padding-bottom: 13px;
+}

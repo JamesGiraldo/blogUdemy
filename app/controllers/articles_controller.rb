@@ -2,8 +2,20 @@ class ArticlesController < ApplicationController
   before_action :authenticate_admin!, only: [:destroy]
   before_action :authenticate_editor!, only: [:edit, :update, :new, :create]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+
+  def search
+    if params.has_key?(:titulo) && params[:titulo].length > 0
+      @articles = Article.titulo(params[:titulo])
+    else
+      @articles = Article.all
+    end
+  end
+
   def index
-    @articles = Article.all
+    @articles = Article.ultimos
+    if user_signed_in? && current_user.is_editor? && !params.has_key?(:normal)
+      render :"admin_article"
+    end
   end
 
   def show
@@ -11,6 +23,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   def edit
@@ -29,14 +42,19 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.new(article_params)
-    respond_to do |format|
-      if @article.save
-         format.html {redirect_to @article , notice: "Articulo #{@article.title} Registrado."}
-         format.json {render :show, estatus: :created, location: @article}
-      else
-         format.html { render :new }
-         format.json {render json: @article.errors, status: :unprocessable_entity}
+    if params[:categories].nil?
+      redirect_to new_article_path, alert: "Necesitas Agregar Minimo Una categoria!"
+    else
+      @article = current_user.articles.new(article_params)
+      @article.categories = params[:categories]
+      respond_to do |format|
+        if @article.save
+           format.html {redirect_to @article , notice: "Articulo #{@article.title} Registrado."}
+           format.json {render :show, estatus: :created, location: @article}
+        else
+           format.html { render :new }
+           format.json {render json: @article.errors, status: :unprocessable_entity}
+        end
       end
     end
   end
@@ -51,7 +69,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :categories)
   end
   def set_article
     @article = Article.find(params[:id])

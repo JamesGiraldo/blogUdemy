@@ -20,6 +20,9 @@
  $color-b: #FFF;
  $color-c: #F48060;
  $color-d: #C02727;
+ $color-e: #CCFFFF;
+ $search-title: #336633;
+ $search-body: #669900;
  $colors: (
    title:   $title,
    fondo:   $fondo,
@@ -27,7 +30,8 @@
    color-a: $color-a,
    color-b: $color-b,
    color-c: $color-c,
-   color-d: $color-d
+   color-d: $color-d,
+   color-e: $color-e
  );
 body{
   background-color: $fondo;
@@ -43,6 +47,15 @@ body{
 nav{
   margin-bottom: 10px;
 }
+
+.search-title{
+  font-size: 48px !important;
+  color: $search-title;
+}
+.search-body{
+  color: $search-body;
+}
+
 .space-a{
   margin-top: 15px;
 }
@@ -62,4 +75,7 @@ nav{
 }
 .bueno{
   color: white !important;
+}
+.salto{
+  margin-bottom: 10px;
 }

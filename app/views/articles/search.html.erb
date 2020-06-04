@@ -1,0 +1,13 @@
+<div class="space-a">
+  <div class="jumbotron color-e search-jumbotron">
+    <div class="row">
+      <% @articles.each do |articulo| %>
+        <div class="col-md-6 search-fondo">
+          <h1><%= link_to articulo.title, articulo, class: "search-title" %></h1>
+          <p class="search-body"> <%= truncate(articulo.body, length: 300) %> </p>
+          <p class="text-right"><%= link_to "Ver Mas", articulo, class: "btn btn-success" %></p>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
