@@ -58,3 +58,5 @@ gem 'simple_form'
 gem 'country_select'
 gem 'devise'
 gem "table_print"
+gem 'trix', '~> 0.11.1'
+gem 'truncate_html'

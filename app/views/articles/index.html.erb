@@ -1,17 +1,5 @@
-<div class="container-fluid">
+<div class="container-fluid espaciotabla">
   <div class="row">
-    <% @articles.each do |articulo| %>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="jumbotron">          
-          <h1 class=""><%= link_to articulo.title , articulo  %></h1>
-          <p class=""> <%= truncate(articulo.body, length: 100) %></p>
-          <%temporal = "Categorias: "%>
-          <% articulo.categories.each do |category| %>
-              <% temporal = "#{temporal} #{category.name}" %>
-          <%end%>
-          <p class=""> <%= temporal %> </p>
-       </div>
-      </div>
-    <%end%>
+      <%=  render @articles  %>
   </div>
 </div>

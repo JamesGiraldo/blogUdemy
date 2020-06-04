@@ -5,42 +5,24 @@
         <fieldset>
           <h1 class="text-center space-title form-title"><%= "#{titulo} Articulo" %></h1>
           <div class="">
-            <%= form_with(model: article, local: true) do |form| %>
-                <% if article.errors.any? %>
-                    <div class="" id="error_explanation">
-                      <h2 class=""> <%= pluralize(article.errors.count, "error") %> Prohibido Guardar De Esta Forma El Articulo: </h2>
-                      <ul class="">
-                        <% article.errors.full_messages.each do |message| %>
-                            <li class=""> <%= message %> </li>
-                        <%end%>
-                      </ul>
-                    </div>
-                <%end%>
-                <div class="form-group row">
-                  <%= form.label "Titulo: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
-                  <%= form.text_field :title, class: "col-md-4 form-control" %>
+            <%= simple_form_for @article do |f| %>
+              <div class="fomr-group row">
+                <%= f.label "Titulo: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+                <%= f.input :title , label: false,  autofocus: true, placeholder:"Titulo De Articulo" , autocomplete: "title",require:true, class: "col-md-4 form-control" %>
+              </div>
+              <div class="table-responsive">
+                <%= f.input :body, label: false, as: :trix_editor, require:true ,class: "form-control" %>
+              </div>
+              <% Category.all.each do |category| %>
+                <%= check_box_tag "categories[]", category.id %> <%= category.name %>
+              <%end%>
+              <div class="from-group row">
+                <div class="container text-center">
+                  <%= f.button :submit, "Enviar",  class: "btn btn-info col-md-3" %>
+                  <%= link_to "Atras" , root_path, class:"btn btn-info col-md-3" %>
                 </div>
-                <div class="form-group row">
-                  <%= form.label "Cuerpo: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
-                  <%= form.text_area :body, class:"col-md-4 form-control" %>
-                </div>
-                <div class="form-group row">
-                    <div class="offset-md-2 col-md-3 col-form-label text-right space-label-right">Categorias</div>
-                       <div class="form-check">
-                         <label class="form-check-label" for="gridCheck">
-                           <% Category.all.each do |category| %>
-                             <%= check_box_tag "categories[]", category.id %> <%= category.name %>
-                           <%end%>
-                         </label>
-                      </div>
-                 </div>
-                <div class="form-group row">
-                  <div class="container text-center">
-                    <%= form.submit "Enviar", class:"btn btn-info col-md-3" %>
-                    <%= link_to "Atras" , root_path, class:"btn btn-info col-md-3" %>
-                  </div>
-                </div>
-            <%end%>
+              </div>
+            <% end %>
           </div>
         </fieldset>
       </div>

@@ -22,10 +22,8 @@
       <%end%>
     </ul>
     <%= form_tag articles_search_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
-        <p>
-            <%= text_field_tag :titulo, params[:titulo], class: "form-control mr-sm-2" %>
-            <%= submit_tag "Search", :name => nil , class: "btn btn-secondary my-2 my-sm-0" %>
-        </p>
+        <%= text_field_tag :titulo, params[:titulo], class: "form-control mr-sm-2" %>
+        <%= submit_tag "Search", :name => nil , class: "btn btn-secondary my-2 my-sm-0" %>
     <%end%>
   </div>
 </nav>

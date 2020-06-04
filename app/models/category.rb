@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
 
-  has_many :has_categories
+  has_many :has_categories, dependent: :restrict_with_error
   has_many :articles, through: :has_categories
   belongs_to :user
   validates :name, :color, presence: true

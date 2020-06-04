@@ -60,10 +60,11 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
-    respond_to do |format|
-      format.html {redirect_to articles_url, alert: "Articulo Eliminado"}
-      format.json {head :no_content}
+    if @article.destroy
+      respond_to do |format|
+        format.html {redirect_to article_path, alert: "Articulo Eliminado"}
+        format.json {head :no_content}
+      end
     end
   end
 

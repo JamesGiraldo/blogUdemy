@@ -19,10 +19,10 @@
 <div class="row">
   <% @category.articles.each do |article| %>
       <div class="col-md-4">
-        <div class="jumbotron">
+        <div class="jumbotron h-100">
             <h2 class=""> <%= article.title %> </h2>
-            <p class=""> <%= truncate(article.body, length:100) %> </p>
-            <%= link_to 'Ver Mas', article,  class: "btn btn-info" %>          
+            <p class=""> <%= truncate_html(article.body, length:100) %> </p>
+            <%= link_to 'Ver Mas', article,  class: "btn btn-info" %>
         </div>
       </div>
   <%end%>

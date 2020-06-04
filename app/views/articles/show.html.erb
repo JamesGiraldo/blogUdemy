@@ -1,11 +1,13 @@
 <div class="jumbotron">
   <h1><%= @article.title %></h1>
-  <h3><%= @article.body %></h3>
+  <div class="article-html">
+      <%= @article.body.html_safe %>
+  </div>
   <% if user_signed_in? %>
     <% if !@article.user.nil? %>
       <p><%= @article.user.email %></p>
     <%end%>
     <%= link_to "Atras" , root_path, class: "btn btn-info" %>
     <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning" %>
-  <%end%>    
+  <%end%>
 </div>

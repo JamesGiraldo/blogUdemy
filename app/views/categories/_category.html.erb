@@ -1,13 +1,18 @@
 <style type="text/css" media="screen">
-  <%= ".#{category.color}" %>{
+  <%= ".#{category.name.delete(' ')}" %>{
     background: <%= category.color %> !important;
   }
 </style>
 <div class="col-md-3">
-  <div class="jumbotron <%= "#{category.color}" %>">
-    <h4 class="text"><%= category.name %></h4>
-    <div class="">
-      <p> <%= "Contiene #{category.articles.count} articu(s)" %>  </p>
+  <div class="card">
+    <div class="card-body <%= "#{category.name.delete(' ')}" %>">
+      <h2 class="card-title"><%= category.name %></h2>
+      <div class="">
+        <p> <%= "Contiene #{category.articles.count} articu(s)" %>  </p>
+      </div>
+      <div class="card-footer">
+        <%= "Creado #{category.created_at.strftime("%d-%m-%Y")}"  %>
+      </div>
     </div>
   </div>
 </div>

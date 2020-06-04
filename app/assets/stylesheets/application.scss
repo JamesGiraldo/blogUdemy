@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require trix
  *= require_self
  */
 
@@ -78,4 +79,14 @@ nav{
 }
 .salto{
   margin-bottom: 10px;
+}
+.article-container{
+  .card-body{
+    background: $color-a;
+  }
+  h1{
+    a{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+    }
+  }
 }
