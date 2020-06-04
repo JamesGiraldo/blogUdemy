@@ -22,10 +22,7 @@
         <div class="jumbotron">
             <h2 class=""> <%= article.title %> </h2>
             <p class=""> <%= truncate(article.body, length:100) %> </p>
-            <%= link_to 'Ver Mas', article,  class: "btn btn-info" %>
-            <% if user_signed_in? && current_user.is_editor? %>
-               <%= link_to 'Editar', edit_category_path(@category), class: "btn btn-warning" %>
-            <%end%>
+            <%= link_to 'Ver Mas', article,  class: "btn btn-info" %>          
         </div>
       </div>
   <%end%>

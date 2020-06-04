@@ -2,7 +2,7 @@
   <div class="row">
     <% @articles.each do |articulo| %>
       <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="jumbotron">
+        <div class="jumbotron">          
           <h1 class=""><%= link_to articulo.title , articulo  %></h1>
           <p class=""> <%= truncate(articulo.body, length: 100) %></p>
           <%temporal = "Categorias: "%>
@@ -10,15 +10,6 @@
               <% temporal = "#{temporal} #{category.name}" %>
           <%end%>
           <p class=""> <%= temporal %> </p>
-          <% if user_signed_in? %>
-            <% if current_user.is_editor? %>
-              <%= link_to "Editar", edit_article_path(articulo), class: "btn btn-warning" %>
-            <%end%>
-            <% if current_user.is_admin? %>
-              <%= link_to "Eliminar #{articulo.title}", articulo, method: :delete, data: {confirm:
-                 "¿Estas Seguro De Eliminar El Articulo #{articulo.title}?"}, class: "btn btn-danger" %>
-            <%end%>
-          <%end%>
        </div>
       </div>
     <%end%>

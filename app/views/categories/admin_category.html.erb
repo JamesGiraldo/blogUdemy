@@ -1,0 +1,28 @@
+<div class="espaciotabla">
+  <div class="jumbotron">
+    <h1 class="text">Adminitrador</h1>
+    <p class=""> <%= link_to "Normal", categories_path(normal: true), class: "btn btn-success" %> </p>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th class="text-center">Titulo</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="jumbotron color-d">
+          <% @categories.each do |cat| %>
+            <tr>
+              <td class="bueno"> <%= "#{cat.name}" "#{cat.created_at.strftime("%d-%m-%Y %H:%M")}" %> </td>
+              <td class="text-center">
+                <%= link_to "Ver", cat, class: "fa fa-bomb  btn btn-info"%>&nbsp;
+                <%= link_to "Editar", edit_category_path(cat), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
+                <%= link_to "Eliminar", cat, method: :delete, data: { :confirm => "Estás seguro? de Eliminar El Articulo #{cat.name}"} , class: "fa fa-trash-o btn btn-danger"%>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
