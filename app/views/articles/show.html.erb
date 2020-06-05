@@ -1,5 +1,10 @@
 <div class="jumbotron">
-  <h1><%= @article.title %></h1>
+  <h1><%= @article.title %></h1>  
+  <div class="row">
+    <div class="col-md-12">
+      <%= image_tag @article.img_art, class: "img-fluid" %>
+    </div>
+  </div>
   <div class="article-html">
       <%= @article.body.html_safe %>
   </div>

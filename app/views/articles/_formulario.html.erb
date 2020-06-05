@@ -10,6 +10,10 @@
                 <%= f.label "Titulo: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
                 <%= f.input :title , label: false,  autofocus: true, placeholder:"Titulo De Articulo" , autocomplete: "title",require:true, class: "col-md-4 form-control" %>
               </div>
+              <div class="fomr-group row">
+                <%= f.label "Banner: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+                <%= f.input :img_art , label: false, as: :file ,   autofocus: true, placeholder:"Imagen" , autocomplete: "title",require:true, class: "col-md-4 form-control" %>
+              </div>
               <div class="table-responsive">
                 <%= f.input :body, label: false, as: :trix_editor, require:true ,class: "form-control" %>
               </div>

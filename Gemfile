@@ -52,11 +52,31 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'boostrap-sass', '~> 0.0.2'
+# libreria de boostrap
+gem 'boostrap-sass'
 gem 'boostrap_modal_rails', '~> 0.3.0'
+# formulario de rails simple_form form
 gem 'simple_form'
+# dichoso selector colletion
 gem 'country_select'
+# devise form login
 gem 'devise'
+# tabla en console
 gem "table_print"
+# Editor trix
 gem 'trix', '~> 0.11.1'
+# Acortar Texto y siga siendo html
 gem 'truncate_html'
+# Imagenes
+gem 'paperclip', '~> 6.1'
+# paginacion
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'
+
+# jquery rails
+gem 'jquery-rails'
+# font-awesome
+gem 'font-awesome-rails'
+# gema faker
+gem 'faker'

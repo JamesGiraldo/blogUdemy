@@ -2,28 +2,20 @@
   .jumbotron{
     margin-top: 10px !important;
   }
-  .category-show{
+  .category-show{    
     background: <%= @category.color %> !important;
   }
 </style>
 <div class="category-show">
-  <h1 class="text-center"><strong><%= @category.name %></strong></h1>
-  <h5 class="text-center">
-    <div class="">
-      <% if !@category.user.nil? %>
-        Creado Por <strong> <%= @category.user.email %> </strong>
-      <%end%>
-    </div>
-  </h5>
+    <h1 class="text-center"><strong><%= @category.name %></strong></h1>
+    <h5 class="text-center">
+      <div class="">
+        <% if !@category.user.nil? %>
+          Creado Por <strong> <%= @category.user.email %> </strong>
+        <%end%>
+      </div>
+    </h5>
 </div>
 <div class="row">
-  <% @category.articles.each do |article| %>
-      <div class="col-md-4">
-        <div class="jumbotron h-100">
-            <h2 class=""> <%= article.title %> </h2>
-            <p class=""> <%= truncate_html(article.body, length:100) %> </p>
-            <%= link_to 'Ver Mas', article,  class: "btn btn-info" %>
-        </div>
-      </div>
-  <%end%>
+  <%= render @category.articles %>
 </div>
