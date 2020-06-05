@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def index
-    @articles = Article.ultimos
+    @articles = Article.paginate(:page => params[:page], :per_page => 10 ).ultimos
     if user_signed_in? && current_user.is_editor? && !params.has_key?(:normal)
       render :"admin_article"
     end

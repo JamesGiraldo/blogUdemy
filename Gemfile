@@ -69,11 +69,13 @@ gem 'trix', '~> 0.11.1'
 gem 'truncate_html'
 # Imagenes
 gem 'paperclip', '~> 6.1'
-# paginacion
+# paginacion con kaminari
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'kaminari-bootstrap', '~> 3.0', '>= 3.0.1'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
-
+#  paginacion con will_paginate
+gem 'will_paginate', '~> 3.3'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
 # jquery rails
 gem 'jquery-rails'
 # font-awesome
