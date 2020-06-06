@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <% if current_user.is_editor? %>
     <div class="list-group space-a">
-        <%= link_to "Administrador", root_path, class: "list-group-item list-group-item-action active" %>
+        <%= link_to "Administrador", root_path, class: " text-center list-group-item list-group-item-action active" %>
         <%= link_to "Ver Articulos", articles_path, class: "list-group-item list-group-item-action" %>
         <%= link_to "Crear Articulo", new_article_path, class: "list-group-item list-group-item-action" %>
         <%= link_to "Ver Categorias", categories_path, class: "list-group-item list-group-item-action" %>
@@ -9,8 +9,8 @@
     </div><br>
   <%end%>
 <%end%>
-  <div class="list-group">
-    <%= link_to "Categorias", categories_path, class:"list-group-item list-group-item-action active" %>
+  <div class="list-group space-a space-b">
+    <%= link_to "Categorias", categories_path, class:" text-center list-group-item list-group-item-action active" %>
     <% @categorias.each do |categoria| %>
       <%= link_to categoria.name , categoria, class:"list-group-item list-group-item-action" %>
     <%end%>
