@@ -10,10 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require trix
  *= require_self
+ *= require animate/animate.css
+ *= require style
+ *= require font-awesome
  */
+ @import "bootstrap";
+ @import "toastr/toastr.min.css";
 
  $title:   #000;
  $fondo:   #f9f9f9;
@@ -35,8 +38,15 @@
    color-e: $color-e
  );
 body{
-  background-color: $fondo;
+  background-color: $fondo !important;
 }
+
+ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+    background-color: #008cba !important;
+    border-color: #008cba !important;
+    color: #FFFFFF;
+    z-index: 2;
+  }
 @each $color_name, $color in $colors{
   .#{$color-name}{
     background-color: $color !important;
@@ -81,7 +91,7 @@ nav{
   margin-bottom: 10px;
 }
 .category-container, .article-container{
-    background: $color-a;
+    background: $color-a !important;
   h2,h5,p,a{
     color: black;
     text-decoration: none;
