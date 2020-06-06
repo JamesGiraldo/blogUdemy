@@ -9,5 +9,11 @@
         </div>
       <%end%>
     </div>
+    <div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+      <%= will_paginate @articles %>
+    </div>
+    <% unless @articles.present? %>
+        <h2 class="text-center">No Hay Informacion Solicitada</h2>
+    <%end%>
   </div>
 </div>

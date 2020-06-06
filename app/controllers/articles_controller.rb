@@ -5,9 +5,9 @@ class ArticlesController < ApplicationController
 
   def search
     if params.has_key?(:titulo) && params[:titulo].length > 0
-      @articles = Article.titulo(params[:titulo])
+      @articles = Article.titulo(params[:titulo]).paginate(:page => params[:page], :per_page => 10 )
     else
-      @articles = Article.all
+      @articles = Article.all.paginate(:page => params[:page], :per_page => 10 )
     end
   end
 
