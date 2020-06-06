@@ -1,18 +1,50 @@
-<div class="jumbotron">
-  <h1><%= @article.title %></h1>  
+<div class="jumbotron space-a">
+      <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.is_editor? %>
+          <h1><%= @article.title %></h1> <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning float-right" %>
+          <%else%>
+          <h1><%= @article.title %></h1>
+        <%end%>
+      <%end%>
+  <% if !@article.user.nil? %>
+    <p><%= @article.user.email %></p> &nbsp;
+  <%end%>
   <div class="row">
     <div class="col-md-12">
-      <%= image_tag @article.img_art, class: "img-fluid" %>
+      <%= image_tag @article.img_art, class: "img-fluid" , alt: "Volver a Insertar Banner!" %>
     </div>
   </div>
-  <div class="article-html">
+  <div class="article-html space-a space-b">
       <%= @article.body.html_safe %>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Categorias:</h3>
+      <% @article.categories.each do |category| %>
+          <span class="badge badge-primary"><strong><%= category.name %></strong></span>
+      <%end%>
+    </div>
+  </div>
   <% if user_signed_in? %>
-    <% if !@article.user.nil? %>
-      <p><%= @article.user.email %></p>
-    <%end%>
-    <%= link_to "Atras" , root_path, class: "btn btn-info" %>
-    <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning" %>
+    <div class="space-a">
+      <%= render "comments/form" , comment: @comment%>
+    </div>
   <%end%>
+  <ul class="space-a">
+    <% @article.comments.each do |comment| %>
+      <li>
+        <div class="row">
+          <div class="col-md-5">
+            <%= truncate_html(comment.user.email.html_safe) %>:  <%= truncate_html(comment.body.html_safe) %>
+          </div>
+          <div class="col-md-7">
+            <% if user_signed_in? && current_user == comment.user %>
+              <%= link_to 'Editar' , edit_article_comment_path(@article, comment), class: "btn btn-warning" %>
+              <%= link_to 'Eliminar' , [@article, comment], data: { confirm: "Estas Seguro? "}, method: :delete , class: "btn btn-danger" %>
+            <%end%>
+          </div>
+        </div>
+      </li>
+    <%end%>
+  </ul>
 </div>

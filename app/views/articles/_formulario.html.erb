@@ -6,6 +6,7 @@
           <h1 class="text-center space-title form-title"><%= "#{titulo} Articulo" %></h1>
           <div class="">
             <%= simple_form_for @article do |f| %>
+             <%= f.error_notification %>
               <div class="fomr-group row">
                 <%= f.label "Titulo: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
                 <%= f.input :title , label: false,  autofocus: true, placeholder:"Titulo De Articulo" , autocomplete: "title",require:true, class: "col-md-4 form-control" %>
@@ -15,14 +16,17 @@
                 <%= f.input :img_art , label: false, as: :file ,   autofocus: true, placeholder:"Imagen" , autocomplete: "title",require:true, class: "col-md-4 form-control" %>
               </div>
               <div class="table-responsive">
-                <%= f.input :body, label: false, as: :trix_editor, require:true ,class: "form-control" %>
+                <%= f.input :body, label: false,  autofocus: true, autocomplete: "body", require: true ,
+                    :as => :trix_editor, :input_html => { placeholder:"Cuerpo Del Articulo Por Crear" , 'rows' => 5, 'cols' => 29 } %>
               </div>
-              <% Category.all.each do |category| %>
-                <%= check_box_tag "categories[]", category.id %> <%= category.name %>
-              <%end%>
+              <div class="">
+                  <% Category.all.each do |category| %>
+                    <%= check_box_tag "categories[]", category.id %> <%= category.name %>
+                  <%end%>
+              </div>&nbsp;
               <div class="from-group row">
                 <div class="container text-center">
-                  <%= f.button :submit, "Enviar",  class: "btn btn-info col-md-3" %>
+                  <%= f.button :submit, "Enviar",  class: "btn btn-info col-md-3" %>&nbsp;
                   <%= link_to "Atras" , root_path, class:"btn btn-info col-md-3" %>
                 </div>
               </div>

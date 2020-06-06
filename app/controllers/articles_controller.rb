@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def new
@@ -30,6 +31,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article.categories = @article.categories.ids
     respond_to do |format|
       if @article.update(article_params)
         format.html {redirect_to @article , notice: "Articulo #{@article.title} Modificado."}
@@ -42,19 +44,15 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    if params[:categories].nil?
-      redirect_to new_article_path, alert: "Necesitas Agregar Minimo Una categoria!"
-    else
-      @article = current_user.articles.new(article_params)
-      @article.categories = params[:categories]
-      respond_to do |format|
-        if @article.save
-           format.html {redirect_to @article , notice: "Articulo #{@article.title} Registrado."}
-           format.json {render :show, estatus: :created, location: @article}
-        else
-           format.html { render :new }
-           format.json {render json: @article.errors, status: :unprocessable_entity}
-        end
+    @article = current_user.articles.new(article_params)
+    @article.categories = params[:categories]
+    respond_to do |format|
+      if @article.save
+         format.html {redirect_to @article , notice: "Articulo #{@article.title} Registrado."}
+         format.json {render :show, estatus: :created, location: @article}
+      else
+         format.html { render :new }
+         format.json {render json: @article.errors, status: :unprocessable_entity}
       end
     end
   end

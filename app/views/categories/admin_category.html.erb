@@ -19,9 +19,9 @@
               <td class="bueno"> <%= cat.name %> </td>
               <td class="bueno"> <%= cat.created_at.strftime("%d-%m-%Y %H:%M") %> </td>
               <td class="text-center">
-                <%= link_to "Ver", cat, class: "fa fa-bomb  btn btn-info"%>&nbsp;
-                <%= link_to "Editar", edit_category_path(cat), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
-                <%= link_to "Eliminar", cat, method: :delete, data: { :confirm => "Estás seguro? de Eliminar El Articulo #{cat.name}"} , class: "fa fa-trash-o btn btn-danger"%>
+                <%= link_to " Ver ", cat, class: "fa fa-eye  btn btn-info"%>&nbsp;
+                <%= link_to " Editar ", edit_category_path(cat), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
+                <%= link_to " Eliminar ", cat, method: :delete, data: { :confirm => "Estás seguro? de Eliminar La Categoria #{cat.name}"} , class: "fa fa-trash-o btn btn-danger"%>
               </td>
             </tr>
           <%end%>

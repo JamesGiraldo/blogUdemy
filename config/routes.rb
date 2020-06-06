@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get "articles/search"
   devise_for :users
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   resources :categories
   post "contacts/new"
   get 'welcome/contactos'

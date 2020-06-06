@@ -14,6 +14,8 @@ Rails.application.config.assets.precompile += %w( categories.css )
 Rails.application.config.assets.precompile += %w( categories.js )
 Rails.application.config.assets.precompile += %w( contacts.css )
 Rails.application.config.assets.precompile += %w( contacts.js )
+Rails.application.config.assets.precompile += %w( comments.css )
+Rails.application.config.assets.precompile += %w( comments.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

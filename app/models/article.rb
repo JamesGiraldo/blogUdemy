@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   include PermissionsConcern
+  has_many :comments
   has_many :has_categories
   has_many :categories, through: :has_categories
   after_create :save_categories
@@ -8,6 +9,9 @@ class Article < ApplicationRecord
   validates :title, :body, presence: true
   validates :title, length: {minimum: 15, too_short: "Minimo Son %{count} Caracteres." }
   validates :body, length: { minimum: 100, too_short: "Minimo Son %{count} Caracteres." }
+
+  validate :valide_categories
+
   scope :ultimos, -> {order("created_at DESC")}
 
   scope :titulo, -> (title) { where("title LIKE ?", "%#{title}%") }
@@ -27,6 +31,9 @@ class Article < ApplicationRecord
       @categories = value
       # raise @categories.to_yaml
   end
+  def getCategories
+      @categories
+  end
   private
   def save_categories
       @categories.each do |category_id|
@@ -34,4 +41,11 @@ class Article < ApplicationRecord
         HasCategory.create(category_id: category_id, article_id: self.id)
       end
   end
+
+  def valide_categories
+    if self.getCategories.blank?
+        errors.add(:categories, "Debe Agregar Una Categoria.!")
+    end
+  end
+
 end

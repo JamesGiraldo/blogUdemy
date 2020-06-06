@@ -13,6 +13,7 @@
  *= require_self
  *= require animate/animate.css
  *= require style
+ *= require trix
  *= require font-awesome
  */
  @import "bootstrap";
@@ -49,7 +50,7 @@ body{
   }
 @each $color_name, $color in $colors{
   .#{$color-name}{
-    background-color: $color !important;
+    background-color: $color !important;    
   }
   .#{$color-name}-text{
     color: $color !important;
