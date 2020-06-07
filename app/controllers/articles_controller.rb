@@ -71,6 +71,10 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :body, :categories, :img_art)
   end
   def set_article
-    @article = Article.find(params[:id])
+    begin
+      @article = Article.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, alert: "Este Articulo No Existe"
+    end
   end
 end

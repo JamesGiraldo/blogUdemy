@@ -67,11 +67,19 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      begin
+        @comment = Comment.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to root_path, alert: "Este Comentario No Existe!"
+      end
     end
 
     def set_article
-      @article = Article.find(params[:article_id])
+      begin
+        @article = Article.find(params[:article_id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to root_path, alert: "Este Articulo No Existe!"
+      end
     end
 
     # Only allow a list of trusted parameters through.

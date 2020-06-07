@@ -4,7 +4,7 @@
       <% @articles.each do |articulo| %>
         <div class="col-md-6 search-fondo">
           <h1><%= link_to articulo.title, articulo, class: "search-title" %></h1>
-          <p class="search-body"> <%= truncate(articulo.body, length: 300) %> </p>
+          <p class="search-body"> <%= truncate_html(articulo.body, length: 300) %> </p>
           <p class="text-right"><%= link_to "Ver Mas", articulo, class: "btn btn-success" %></p>
         </div>
       <%end%>
