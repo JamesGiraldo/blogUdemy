@@ -13,7 +13,8 @@
       <%= will_paginate @articles %>
     </div>
     <% unless @articles.present? %>
-        <h2 class="text-center">No Hay Informacion Solicitada</h2>
+        <h2 class="text-center">No Hay Informacion Solicitada Con <%= "\" #{params[:titulo]} \"" %></h2>
+        <p class="text-center">Lo Siento...</p>
     <%end%>
   </div>
 </div>
