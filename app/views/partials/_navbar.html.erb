@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success NAV-dark">
   <a class="navbar-brand" href=" <%= root_path %> ">Blog</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler NAV-btn-dark" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarColor01">
@@ -21,6 +21,12 @@
     <%= form_tag articles_search_path, :method => 'get', class: "form-inline my-2 my-lg-0" do %>
         <%= text_field_tag :titulo, params[:titulo], class: "form-control mr-sm-2" %>
         <%= submit_tag "Search", :name => nil , class: "btn btn-light my-2 my-sm-0" %>
-    <%end%>
+    <%end%>&nbsp;
+    <div class="nav-item">
+      <button type="button" data-toggle="tooltip" title="Cambiar Tema" class="switch" id="switch">
+        <span> <i class="fa fa-sun-o"></i> </span>
+        <span> <i class="fa fa-moon-o"></i> </span>
+      </button>
+    </div>
   </div>
 </nav>

@@ -26,5 +26,26 @@
 //= require trix
 //= require_tree .
 $(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
+    //Selector de Tema Black Y white
+    var btnSwitch = document.querySelector('#switch');
+    //evento click
+    btnSwitch.addEventListener('click', function(){
+      document.body.classList.toggle('dark');
+      btnSwitch.classList.toggle('active');
+      // Guardar en localStorage
+      if(document.body.classList.contains('dark')){
+        localStorage.setItem('dark-mode', 'true');
+      }else {
+        localStorage.setItem('dark-mode', 'false');
+      }
+    });
+  // Obtenemos el modo actual donde nos encontramos
+    if (localStorage.getItem('dark-mode') === 'true') {
+      document.body.classList.add('dark');
+      btnSwitch.classList.add('active');
+    }else {
+      document.body.classList.remove('dark');
+      btnSwitch.classList.remove('active');
+    }
 });

@@ -1,24 +1,24 @@
 <div class="espaciotabla">
-  <div class="jumbotron table-responsive">
-      <h1 class="text">Adminitrador</h1>
-    <p class=""> <%= link_to "Normal", articles_path(normal: true), class: "btn btn-success" %> </p>
+  <div class="jumbotron table-responsive Admin-dark">
+      <h1 class="Admin-title-dark">Adminitrador</h1>
+    <p class=""> <%= link_to "Normal", articles_path(normal: true), class: "btn btn-success Admin-btn-dark" %> </p>
       <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
-            <th class="text-center">Titulo</th>
-            <th class="text-center">Fecha</th>
-            <th class="text-center">Acciones</th>
+            <th class="text-center Admin-th-dark">Titulo</th>
+            <th class="text-center Admin-th-dark">Fecha</th>
+            <th class="text-center Admin-th-dark">Acciones</th>
           </tr>
         </thead>
-        <tbody class="color-d">
+        <tbody class="color-d Admin-tbody-dark">
           <% @articles.each do |art| %>
-            <tr class="white-text text-center">
+            <tr class="white-text text-center Admin-tr-dark">
               <td class=""> <%= art.title %> </td>
               <td class=""> <%= art.created_at.strftime("%d-%m-%Y %H:%M") %> </td>
               <td class="text-center">
-                <%= link_to " Ver ", art, class: "fa fa-eye  btn btn-info"%>&nbsp;
-                <%= link_to " Editar ", edit_article_path(art), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
-                <%= link_to " Eliminar ", art, method: :delete, data: { :confirm => "Estás seguro? de Eliminar El Articulo #{art.title}"} , class: "fa fa-trash-o btn btn-danger"%>
+                <%= link_to "  ", art, class: "fa fa-eye  btn btn-info"%>&nbsp;
+                <%= link_to "  ", edit_article_path(art), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
+                <%= link_to "  ", art, method: :delete, data: { :confirm => "Estás seguro? de Eliminar El Articulo #{art.title}"} , class: "fa fa-trash-o btn btn-danger"%>
               </td>
             </tr>
           <%end%>
