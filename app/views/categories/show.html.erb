@@ -1,14 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @category.color %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<style type="text/css" media="screen">
+  .jumbotron{
+    margin-top: 10px !important;
+  }
+  .category-show{
+    background: <%= @category.color %> !important;
+  }
+</style>
+<div class="category-show space-a">
+    <h1 class="text-center"><strong><%= @category.name %></strong></h1>
+    <h5 class="text-center">
+      <div class="">
+        <% if !@category.user.nil? %>
+          Creado Por <strong> <%= @category.user.email %> </strong>
+        <%end%>
+      </div>
+    </h5>
+</div>
+<div class="row">
+  <%= render @articles %>
+</div>
+<div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+  <%= will_paginate @articles %>
+</div>

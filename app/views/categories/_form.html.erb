@@ -1,26 +1,43 @@
-<%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-      <ul>
-      <% category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron space-a">
+        <fieldset>
+          <h1 class="text-center space-title form-title"><%= "#{titulo} Categoria" %></h1>
+          <div class="">
+            <%= form_with(model: category, local: true) do |form| %>
+                <% if category.errors.any? %>
+                    <div class="" id="error_explanation">
+                      <h2 class=""> <%= pluralize(category.errors.count, "error") %> Prohibido Guardar De Esta Forma La Categoría: </h2>
+                      <ul class="">
+                        <% category.errors.full_messages.each do |message| %>
+                            <li class=""> <%= message %> </li>
+                        <%end%>
+                      </ul>
+                    </div>
+                <%end%>
+                <div class="form-group row">
+                  <%= form.label "Nombre: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+                  <%= form.text_field :name, class: "col-md-4 form-control" %>
+                </div>
+                <div class="form-group row">
+                  <%= form.label "Banner: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+                  <%= form.file_field :img_cat, class: "col-md-4 form-control" %>
+                </div>
+                <div class="form-group row">
+                  <%= form.label "Color: ", class:"offset-md-2 col-md-3 col-form-label text-right space-label-right" %>
+                  <%= form.color_field :color, id: :category_color, class:"col-md-4 form-control" %>
+                </div>
+                <div class="form-group row">
+                  <div class="container text-center">
+                    <%= form.submit "Enviar", class:"btn btn-info col-md-3" %>
+                    <%= link_to "Atras" , root_path, class:"btn btn-info col-md-3" %>
+                  </div>
+                </div>
+            <%end%>
+          </div>
+        </fieldset>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :category_name %>
   </div>
-
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color, id: :category_color %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

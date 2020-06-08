@@ -1,15 +1,20 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_editor!, only: [:edit, :update, :new, :create]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!, only: [:destroy]
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+    if user_signed_in? && current_user.is_editor? && !params.has_key?(:normal)
+      render :"admin_category"
+    end
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @articles = @category.articles.paginate(:page => params[:page], :per_page => 10 )
   end
 
   # GET /categories/new
@@ -24,11 +29,10 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(category_params)
-
+    @category = current_user.categories.new(category_params)
     respond_to do |format|
-      if @category.save        
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+      if @category.save
+        format.html { redirect_to @category, notice: 'La categoría se creó correctamente.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to @category, notice: 'La categoría se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+      format.html { redirect_to categories_url, alert: 'La categoría fue destruida con éxito.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +68,15 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      begin
+        @category = Category.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to root_path, alert: "Esta Categoria No Existe!"
+      end
     end
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :color)
+      params.require(:category).permit(:name, :color, :img_cat)
     end
 end

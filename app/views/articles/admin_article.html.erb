@@ -1,0 +1,31 @@
+<div class="espaciotabla">
+  <div class="jumbotron table-responsive">
+      <h1 class="text">Adminitrador</h1>
+    <p class=""> <%= link_to "Normal", articles_path(normal: true), class: "btn btn-success" %> </p>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th class="text-center">Titulo</th>
+            <th class="text-center">Fecha</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="color-d">
+          <% @articles.each do |art| %>
+            <tr class="white-text text-center">
+              <td class=""> <%= art.title %> </td>
+              <td class=""> <%= art.created_at.strftime("%d-%m-%Y %H:%M") %> </td>
+              <td class="text-center">
+                <%= link_to " Ver ", art, class: "fa fa-eye  btn btn-info"%>&nbsp;
+                <%= link_to " Editar ", edit_article_path(art), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
+                <%= link_to " Eliminar ", art, method: :delete, data: { :confirm => "Estás seguro? de Eliminar El Articulo #{art.title}"} , class: "fa fa-trash-o btn btn-danger"%>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+      <div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+        <%= will_paginate @articles %>
+      </div>
+  </div>
+</div>

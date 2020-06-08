@@ -3,6 +3,6 @@ class WelcomeController < ApplicationController
     @articles = Article.all
   end
   def contactos
-    @email = "Jamesgiiraldo@gmail.com"
+  @contacts = Contact.new
   end
 end

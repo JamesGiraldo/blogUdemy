@@ -1,4 +1,26 @@
-<h1 class="text-center">Contactos</h1>
-<p>
-  <%= @email %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h1>Platicame si tienes alguna Pregunta.</h1>
+        <div class="">          
+            <%= form_with(model: @contacts) do |f| %>
+              <div class="form-group row">
+                <%= f.label "Asunto", class: "" %>
+                <%= f.text_field :title, class: "form-control" %>
+              </div>
+              <div class="form-group row">
+                <%= f.label "Email", class: "" %>
+                <%= f.text_field :email, class: "form-control" %>
+              </div>
+              <div class="form-group row">
+                <%= f.label "Descripcion", class: "" %>
+                <%= f.text_area :description, class: "form-control" %>
+              </div>
+              <%= f.submit "Enviar", class: "btn btn-success" %>
+            <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

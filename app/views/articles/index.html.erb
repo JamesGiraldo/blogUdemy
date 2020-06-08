@@ -1,14 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid espaciotabla">
   <div class="row">
-    <% @articles.each do |articulo| %>
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <div class="jumbotron">
-          <h1 class="text"><%= link_to articulo.title , articulo  %></h1>
-          <h3 class="text"> <%= articulo.body%> </h3>
-          <%= link_to "Editar", edit_article_path(articulo), class: "btn btn-warning" %>
-          <%= link_to "Eliminar #{articulo.title}", articulo, method: :delete, data: {confirm: "¿Estas Seguro De Eliminar El Articulo #{articulo.title}?"}, class: "btn btn-danger" %>
-       </div>
+      <%=  render @articles  %>
+      <div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+        <%= will_paginate @articles %>
       </div>
-    <%end%>
   </div>
 </div>

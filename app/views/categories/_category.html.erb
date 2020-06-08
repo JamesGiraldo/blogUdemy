@@ -1,0 +1,23 @@
+<style type="text/css" media="screen">
+  <%= ".#{category.name.delete(' ')}" %>{
+    background: <%= category.color %> !important;
+  }
+</style>
+<div class="col-md-3">
+  <div class="card">
+    <div class="category-container">
+        <div class="card-body <%= "#{category.name.delete(' ')}" %>">
+          <%= link_to category do %>
+          <h2 class="card-title text-center"><%= category.name %></h2>
+          <%= image_tag category.img_cat , class: "card-img-top" %>
+          <%end%>
+          <div class="">
+            <p> <%= "Contiene #{category.articles.count} articu(s)" %>  </p>
+          </div>
+          <div class="card-footer">
+            <%= "Creado #{category.created_at.strftime("%d-%m-%Y")}"  %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

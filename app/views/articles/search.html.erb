@@ -1,0 +1,20 @@
+<div class="space-a">
+  <div class="jumbotron color-e search-jumbotron">
+    <div class="row">
+      <% @articles.each do |articulo| %>
+        <div class="col-md-6 search-fondo">
+          <h1><%= link_to articulo.title, articulo, class: "search-title" %></h1>
+          <p class="search-body"> <%= truncate_html(articulo.body, length: 300) %> </p>
+          <p class="text-right"><%= link_to "Ver Mas", articulo, class: "btn btn-success" %></p>
+        </div>
+      <%end%>
+    </div>
+    <div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+      <%= will_paginate @articles %>
+    </div>
+    <% unless @articles.present? %>
+        <h2 class="text-center">No Hay Informacion Solicitada Con <%= "\" #{params[:titulo]} \"" %></h2>
+        <p class="text-center">Lo Siento...</p>
+    <%end%>
+  </div>
+</div>
