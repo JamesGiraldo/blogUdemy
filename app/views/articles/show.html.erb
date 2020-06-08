@@ -1,14 +1,14 @@
-<div class="jumbotron space-a">
+<div class="jumbotron space-a show-dark">
   <% if user_signed_in? %>
     <% if user_signed_in? && current_user.is_editor? %>
-        <h1><%= @article.title %></h1> <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning float-right" %>
+        <h1 class="H1"><%= @article.title %></h1> <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning float-right show-btn-dark" %>
       <%else%>
-      <h1><%= @article.title %></h1>
+      <h1 class="H1"><%= @article.title %></h1>
     <%end%>
   <%end%>
   <div class="">
       <% if !@article.user.nil? %>
-        <p><%= @article.user.email %></p> &nbsp;
+        <p class="show-user-email-dark"><%= @article.user.email %></p> &nbsp;
       <%end%>
   </div>
   <div class="row">
@@ -16,20 +16,20 @@
       <%= image_tag @article.img_art, class: "img-fluid" , alt: "Volver a Insertar Banner!" %>
     </div>
   </div>
-  <div class="article-html space-a space-b">
+  <div class="article-html space-a space-b show-body-dark">
       <%= @article.body.html_safe %>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h3>Categorias:</h3>
+      <h3 class="H3">Categorias:</h3>
       <% @article.categories.each do |category| %>
-          <span class="badge badge-primary"><strong><%= category.name %></strong></span>
+          <span class="badge badge-primary show-badge-dark"><strong><%= category.name %></strong></span>
       <%end%>
     </div>
-  </div><hr>
+  </div><hr class="HR-dark">
   <div class="container-fluid">
     <div class="comments-container">
-      <h1 class=""><i class="fa fa-comments"></i> Comentarios <a href="#">Blog.com</a></h1>
+      <h1 class="Show-H1-dark"><i class="fa fa-comments"></i> Comentarios <a href="#" class="Show-H1-dark">Blog.com</a></h1>
       <ul id="comments-list" class="comments-list UL">
         <% @article.comments.each do |comment| %>
           <li class="LI">
@@ -56,10 +56,10 @@
             <h2 class="text-center">No Hay Comentarios</h2>
         <%end%>
       </div>
-    </div><hr>
+    </div><hr class="HR-dark">
   </div>
   <% if user_signed_in? %>
-    <div class="space-a">
+    <div class="jumbotron space-a show-form-dark">
       <%= render "comments/form" , comment: @comment%>
     </div>
   <%end%>

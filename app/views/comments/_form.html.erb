@@ -2,9 +2,9 @@
  <%= f.error_notification %>
   <div class="table-responsive">
     <%= f.input :body, label: false,  autofocus: true, autocomplete: "body", require: true ,
-        :as => :trix_editor, :input_html => { placeholder:"Cuerpo Del Articulo Por Crear" , 'rows' => 5, 'cols' => 29 } %>
+        :as => :trix_editor, :input_html => { class: "form-trix-dark" , placeholder:"Cuerpo Del Articulo Por Crear" , 'rows' => 5, 'cols' => 29 } %>
   </div>
   <div class="form-group ">
-    <%= f.button :submit, "Comentar", class: "btn btn-info btn-block" %>
+    <%= f.button :submit, "Comentar", class: "btn btn-info btn-block form-btn-dark" %>
   </div>
 <% end %>

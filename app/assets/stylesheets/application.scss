@@ -19,6 +19,9 @@
  @import "bootstrap";
  @import "toastr/toastr.min.css";
 
+ $sombraDark: 10px 10px 20px rgba(170,170,170,.16);
+ $sombraLight: 10px 10px 20px rgba(0,0,0,.16);
+
  $title:   #000;
  $fondo:   #f9f9f9;
  $color-a: #F3F2B4;
@@ -26,6 +29,7 @@
  $color-c: #F48060;
  $color-d: #C02727;
  $color-e: #CCFFFF;
+ $color-f: #000;
  $search-title: #336633;
  $search-body: #669900;
  $colors: (
@@ -36,21 +40,21 @@
    color-b: $color-b,
    color-c: $color-c,
    color-d: $color-d,
-   color-e: $color-e
+   color-e: $color-e,
+   color-f: $color-f
  );
 body{
   background-color: $fondo !important;
+  transition: .3s ease all;
+  &.dark{
+      background: $color-f !important;
+      transition: .3s ease all;
+  }
 }
 
- a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
-    background-color: #008cba !important;
-    border-color: #008cba !important;
-    color: #FFFFFF;
-    z-index: 2;
-  }
 @each $color_name, $color in $colors{
   .#{$color-name}{
-    background-color: $color !important;    
+    background-color: $color !important;
   }
   .#{$color-name}-text{
     color: $color !important;
@@ -59,7 +63,16 @@ body{
 nav{
   margin-bottom: 10px;
 }
-
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
+    background-color: #1d84c6 !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF;
+    z-index: 2;
+}
+.navbar-dark .navbar-toggler {
+    color: rgb(255, 255, 255) !important;
+    border-color: rgb(255, 255, 255) !important;
+}
 .search-title{
   font-size: 48px !important;
   color: $search-title;
@@ -97,7 +110,7 @@ nav{
 .category-container, .article-container{
     background: $color-a !important;
   h2,h5,p,a{
-    color: black;
+    color: $color-f;
     text-decoration: none;
   }
   h5{
@@ -152,4 +165,180 @@ nav{
 }
 .flickr_pagination .next_page{
   margin-left: 1em;
+}
+
+/* sukect*/
+
+.switch{
+  background: #343D5B;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  outline: none;
+  &::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    transition: .3s ease all;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2);
+  }
+  &.active {
+    background: orange;
+    color: #000;
+    &::after{
+      right: 0;
+      left: unset;
+    }
+  }
+  span{
+    width: 27px;
+    height: 27px;
+    line-height: 30px;
+    display: block;
+    background: none;
+    color: #fff;
+  }
+}
+
+/* Cambio De Tema A Negro */
+/* Pagina Principla Articulos*/
+
+body.dark .Panel-head-dark{
+  color: $color-f !important;
+  background: white !important;
+  border-color: white !important;
+}
+body.dark .Panel-head-dark:hover{
+  background: white !important;
+  color: $color-f !important;
+}
+body.dark .Panel-head-dark:focus{
+  background: white !important;
+  color: $color-f !important;
+}
+
+body.dark .Panel-body-dark:hover{
+  color: $color-f !important;
+}
+body.dark .Panel-body-dark{
+  color: white !important;
+}
+body.dark .NAV-dark{
+  background: $color-f !important;
+  color: white;
+  border: 1px solid white !important;
+}
+body.dark .NAV-btn-dark{
+  background: black;
+    color: white;
+    border-color: white !important;
+}
+body.dark .article-dark{
+  background: $color-f !important;
+  color: white;
+  border-color: white;
+}
+body.dark .article-title-dark, .article-body-dark{
+  color: white !important;
+}
+body.dark .article-categoria-body-dark{
+    color: white !important;
+}
+/* Fin Pagina Principal Articulos*/
+/* Pagina Principla Admin Articulos*/
+body.dark .Admin-dark {
+  background: $color-f !important;
+  border-color: white;
+  border: 1px solid white !important;
+}
+body.dark .Admin-btn-dark {
+  border-color: $color-f;
+  background: white !important;
+  color: $color-f;
+}
+body.dark .Admin-title-dark{
+  color: white;
+}
+body.dark .Admin-th-dark{
+  background: white !important;
+  color: $color-f !important;
+}
+body.dark .Admin-tr-dark{
+  color: white !important;
+}
+body.dark .Admin-tbody-dark{
+  background: $color-f !important;
+  color: white !important;
+}
+/* Fin Pagina Principal Admin Articulos*/
+
+/* search de articulos */
+body.dark .search-dark{
+  background: $color-f !important;
+  color: white;
+  border: 1px solid white !important;
+}
+body.dark .search-fondo{
+  border: 1px solid white !important;
+  margin-bottom: 10px;
+}
+body.dark .search-body-dark{
+  border-color: white !important;
+}
+body.dark .search-btn-dark{
+  border-color: white !important;
+  background: white !important;
+  color: $color-f;
+}
+body.dark .search-title-dark{
+  color: white !important;
+}
+/* fin search de articulos */
+/* Show Articles */
+
+body.dark .show-dark{
+  background: $color-f !important;
+  color: white !important;
+}
+body.dark .show-btn-dark{
+  color: $color-f !important;
+  background: white !important;
+  border-color: white !important;
+}
+body.dark .HR-dark{
+  background: white !important;
+}
+body.dark .Show-H1-dark{
+  color: white !important;
+}
+/* Formulario de commentarios */
+body.dark .form-comment-dark{
+  background: white !important;
+}
+body.dark .form-btn-dark{
+  background: $color-f !important;
+  border-color: white !important;
+}
+body.dark .show-form-dark{
+  background: white !important;
+  border-color: white !important;
+}
+
+/* Fin Show Articles */
+/* Devise */
+body.dark .devise-dark{
+  background: white !important;
+}
+/* Contact */
+body.dark .contact-dark{
+  background: white !important;
 }

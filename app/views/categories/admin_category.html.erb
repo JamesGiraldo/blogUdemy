@@ -1,21 +1,21 @@
-<div class="espaciotabla">
-  <div class="jumbotron">
+<div class="Espace-Table">
+  <div class="jumbotron table-responsive Admin-dark">
     <div class="table-responsive">
-      <h1 class="text">Adminitrador</h1>
+      <h1 class="Admin-title-dark">Adminitrador</h1>
     </div>
-    <p class=""> <%= link_to "Normal", categories_path(normal: true), class: "btn btn-success" %> </p>
+    <p class=""> <%= link_to "Normal", categories_path(normal: true), class: "btn btn-success Admin-btn-dark" %> </p>
     <div class="table-responsive">
       <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
-            <th class="text-center">Titulo</th>
-            <th class="text-center">Fecha</th>
-            <th class="text-center">Acciones</th>
+            <th class="text-center Admin-th-dark">Titulo</th>
+            <th class="text-center Admin-th-dark">Fecha</th>
+            <th class="text-center Admin-th-dark">Acciones</th>
           </tr>
         </thead>
-        <tbody class="jumbotron color-d">
+        <tbody class="Admin-tbody-dark color-d">
           <% @categories.each do |cat| %>
-            <tr>
+            <tr class="Admin-tr-dark">
               <td class="bueno"> <%= cat.name %> </td>
               <td class="bueno"> <%= cat.created_at.strftime("%d-%m-%Y %H:%M") %> </td>
               <td class="text-center">
