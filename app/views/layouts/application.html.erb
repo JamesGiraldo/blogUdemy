@@ -4,9 +4,7 @@
     <title>Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <%= csrf_meta_tags %>
-    <!-- Include style per-controller - vendor plugins -->
-    <%= stylesheet_link_tag    params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css")%>
+    <%= csrf_meta_tags %>        
     <!-- Main css styles -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <!-- Main javascript files -->
