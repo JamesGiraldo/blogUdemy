@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.categories = @article.categories.ids
+    # @article.categories = @article.categories.ids
     respond_to do |format|
       if @article.update(article_params)
         format.html {redirect_to @article , notice: "Articulo #{@article.title} Modificado."}
@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
     begin
       @article = Article.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      redirect_to root_path, alert: "Este Articulo No Existe"
+      redirect_to root_path, alert: "Este Articulo Ya No Existe"
     end
   end
 end
