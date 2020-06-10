@@ -1,31 +1,36 @@
-<div class="espaciotabla">
-  <div class="jumbotron table-responsive Admin-dark">
-      <h1 class="Admin-title-dark">Adminitrador</h1>
-    <p class=""> <%= link_to "Normal", articles_path(normal: true), class: "btn btn-success Admin-btn-dark" %> </p>
-      <table class="table table-bordered">
-        <thead class="thead-dark">
-          <tr>
-            <th class="text-center Admin-th-dark">Titulo</th>
-            <th class="text-center Admin-th-dark">Fecha</th>
-            <th class="text-center Admin-th-dark">Acciones</th>
-          </tr>
-        </thead>
-        <tbody class="color-d Admin-tbody-dark">
-          <% @articles.each do |art| %>
-            <tr class="white-text text-center Admin-tr-dark">
-              <td class=""> <%= art.title %> </td>
-              <td class=""> <%= art.created_at.strftime("%d-%m-%Y %H:%M") %> </td>
-              <td class="text-center">
-                <%= link_to "  ", art, class: "fa fa-eye  btn btn-info"%>&nbsp;
-                <%= link_to "  ", edit_article_path(art), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
-                <%= link_to "  ", art, method: :delete, data: { :confirm => "Estás seguro? de Eliminar El Articulo #{art.title}"} , class: "fa fa-trash-o btn btn-danger"%>
-              </td>
+<div class="jumbotron space-a table-responsive Admin-dark">
+  <h1 class="Admin-title-dark">Adminitrador</h1>
+  <p class=""> <%= link_to "Normal", articles_path(normal: true), class: "btn btn-success Admin-btn-dark" %> </p>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover dataTables-example">
+          <thead class="thead-dark">
+            <tr>
+              <th class="text-center  footable-visible footable-first-column footable-sortable active Admin-th-dark">Titulo</th>
+              <th class="text-center  footable-visible footable-first-column footable-sortable active Admin-th-dark">Fecha</th>
+              <th class="text-center  footable-visible footable-first-column footable-sortable active Admin-th-dark">Acciones</th>
             </tr>
-          <%end%>
-        </tbody>
-      </table>
-      <div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
-        <%= will_paginate @articles %>
+          </thead>
+          <tbody>
+            <% @articles.each do |art| %>
+              <tr class="white-text text-center Admin-tr-dark">
+                <td class=""> <%= art.title %> </td>
+                <td class=""> <%= art.created_at.strftime("%d-%m-%Y %H:%M") %> </td>
+                <td class="text-center">
+                  <%= link_to "  ", art, class: "fa fa-eye  btn btn-info"%>&nbsp;
+                  <%= link_to "  ", edit_article_path(art), class: "fa fa-pencil-square-o  btn btn-warning"%>&nbsp;
+                  <%= link_to "  ", art, method: :delete, data: { :confirm => "Estás seguro? de Eliminar El Articulo #{art.title}"} , class: "fa fa-trash-o btn btn-danger"%>
+                </td>
+              </tr>
+            <%end%>
+            <% unless @articles.present? %>
+               <tr>
+                  <h2 class="text-center">No Hay Informacion Solicitada</h2
+               </tr>
+            <%end%>
+          </tbody>
+        </table>
+        <div class="flickr_pagination" style="margin-top: 20px; margin-bottom: 20px;">
+          <%= will_paginate @articles %>
+        </div>
       </div>
-  </div>
 </div>

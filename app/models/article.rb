@@ -8,7 +8,7 @@ class Article < ApplicationRecord
   validates :title, uniqueness: true
   validates :title, :body, presence: true
   validates :title, length: {minimum: 15, too_short: "Minimo Son %{count} Caracteres." }
-  validates :body, length: { minimum: 100, too_short: "Minimo Son %{count} Caracteres." }
+  validates :body, length: { minimum: 10, too_short: "Minimo Son %{count} Caracteres." }
 
   validate :valide_categories
 

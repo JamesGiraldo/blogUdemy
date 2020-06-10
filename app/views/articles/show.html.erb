@@ -1,10 +1,12 @@
 <div class="jumbotron space-a show-dark">
   <% if user_signed_in? %>
-    <% if user_signed_in? && current_user.is_editor? %>
-        <h1 class="H1"><%= @article.title %></h1> <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning float-right show-btn-dark" %>
-      <%else%>
-      <h1 class="H1"><%= @article.title %></h1>
-    <%end%>
+    <div class="container">
+      <% if user_signed_in? && current_user.is_editor? %>
+          <h1 class="H1 card-title"><%= @article.title %></h1> <%= link_to "Editar" , edit_article_path(@article), class: "btn btn-warning float-right show-btn-dark" %>
+        <%else%>
+        <h1 class="H1 card-title"><%= @article.title %></h1>
+      <%end%>
+    </div>
   <%end%>
   <div class="">
       <% if !@article.user.nil? %>
@@ -17,7 +19,7 @@
     </div>
   </div>
   <div class="article-html space-a space-b show-body-dark">
-      <%= @article.body.html_safe %>
+    <p class="card-text"><%= truncate_html(@article.body.html_safe, length: 100) %></p>
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -28,15 +30,15 @@
     </div>
   </div><hr class="HR-dark">
   <div class="container-fluid">
-    <div class="comments-container">
+    <div class="comments-container comments-dark">
       <h1 class="Show-H1-dark"><i class="fa fa-comments"></i> Comentarios <a href="#" class="Show-H1-dark">Blog.com</a></h1>
-      <ul id="comments-list" class="comments-list UL">
+      <ul id="comments-list comment-list-dark" class="comments-list UL">
         <% @article.comments.each do |comment| %>
           <li class="LI">
               <div class=" comment-main-level">
                 <div class="comment-box">
                   <div class=" comment-head">
-                    <h6 class="comment-name by-author"><a href="#"></a><%= truncate_html(comment.user.email.html_safe) %></h6>
+                    <h6 class="comment-name by-author card-title"><a href="#"></a><%= truncate_html(comment.user.email.html_safe) %></h6>
                     <span><%= comment.created_at.strftime("%d-%m-%Y %H:%M") %></span>
                     <% if user_signed_in? && current_user == comment.user %>
                       <p class="I" data-toggle="tooltip" title="Eliminar" ><%= link_to '' , [@article, comment], data: { confirm: "Estas Seguro? "}, method: :delete , class: "caneca I fa fa-trash-o" %></p>
@@ -44,7 +46,7 @@
                     <%end%>
                   </div>
                   <div class=" comment-content">
-                    <%= truncate_html(comment.body.html_safe) %>
+                    <p class="card-text"><%= truncate_html(comment.body.html_safe, length: 100) %></p>
                   </div>
                 </div>
               </div>

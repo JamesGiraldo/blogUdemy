@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="jumbotron article-form-dark space-a">
+    <div class="jumbotron category-form-dark space-a">
       <h1 class="text-center space-title form-title"><%= "#{titulo} Articulo" %></h1>
       <div class="">
         <%= simple_form_for @article do |f| %>
@@ -24,8 +24,7 @@
           </div>&nbsp;
           <div class="from-group row">
             <div class="container text-center">
-              <%= f.button :submit, "Enviar",  class: "btn btn-info col-md-3" %>&nbsp; 
-              <a class="btn btn-info col-md-3" href="<%=root_path%>">Atras</a>
+              <%= f.button :submit, "Enviar",  class: "btn btn-info col-md-3" %>
             </div>
           </div>
         <% end %>
