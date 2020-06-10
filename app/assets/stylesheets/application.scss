@@ -636,7 +636,6 @@ body.dark .search-title-dark{
 
 body.dark .show-dark{
   background: $color-f !important;
-  color: white !important;
   border: 1px solid white;
 }
 body.dark .show-btn-dark{
@@ -648,6 +647,18 @@ body.dark .HR-dark{
   background: white !important;
 }
 body.dark .Show-H1-dark{
+  color: white !important;
+}
+body.dark .title-show-dark{
+  color: white !important;
+}
+body.dark .show-user-email-dark{
+  color: white !important;
+}
+body.dark .show-body-dark{
+  color: white !important;
+}
+body.dark .show-categories-dark{
   color: white !important;
 }
 /* Formulario de commentarios */
@@ -703,11 +714,7 @@ body.dark .article-form-dark{
 body.dark .category-form-dark{
   background: white !important;
 }
-
-body.dark .container{
+body.dark .new-C-dark{
   background: white !important;
   color: black !important;
-  padding-top: 10px;
-  padding-bottom: 6px;
-  border-radius: 10px;
 }

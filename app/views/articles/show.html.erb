@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <div class="row">
       <div class="col-10">
-          <h1 class="H1 card-title"><%= @article.title %></h1>
+          <h1 class="H1 card-title title-show-dark"><%= @article.title %></h1>
       </div>
       <div class="col-2">
         <div class="botonContainer">
@@ -24,14 +24,16 @@
     </div>
   </div>
   <div class="article-html space-a space-b show-body-dark">
-    <p class="card-text"><%= truncate_html(@article.body.html_safe, length: 100) %></p>
+    <p class="card-text body-show-dark"><%= truncate_html(@article.body.html_safe, length: 100) %></p>
   </div>
   <div class="row">
     <div class="col-md-12">
-      <h3 class="H3">Categorias:</h3>
-      <% @article.categories.each do |category| %>
-          <span class="badge badge-primary show-badge-dark"><strong><%= category.name %></strong></span>
-      <%end%>
+      <div class="show-categories-dark">        
+        <h3 class="H3">Categorias:</h3>
+        <% @article.categories.each do |category| %>
+            <span class="badge badge-primary show-badge-dark"><strong><%= category.name %></strong></span>
+        <%end%>
+      </div>
     </div>
   </div><hr class="HR-dark">
   <div class="">
