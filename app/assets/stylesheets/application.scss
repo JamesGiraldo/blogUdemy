@@ -431,7 +431,22 @@ body.dark .comments-container {
   body.dark .comments-list .comment-box:before, .comments-list .comment-box:after {
   	display: none;
   }
+  body.dark .comment-box .comment-name.by-author:after {
+  	display: none;
+  }
   .comment-box .comment-name.by-author:after {
+  	display: none;
+  }
+  body.dark .comments-list:before {
+  	display: none;
+  }
+  body.dark .comments-list:after {
+  	display: none;
+  }
+  .comments-list:before {
+  	display: none;
+  }
+  .comments-list:after {
   	display: none;
   }
 }
@@ -687,4 +702,8 @@ body.dark .article-form-dark{
 /* form category*/
 body.dark .category-form-dark{
   background: white !important;
+}
+body.dark .new-C-dark{
+  background: white !important;
+  color: black !important;
 }

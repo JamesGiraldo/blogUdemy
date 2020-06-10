@@ -1,20 +1,20 @@
 <div class="row">
-  <div class="col-md-8 offset-md-2">
-    <div class="jumbotron space-a comment-new-dark">
-      <fieldset>
-        <div class="">
-          <%= simple_form_for([@article, @comment] , html: { class: 'new-comment-dark' } ) do |f| %>
-           <%= f.error_notification %>
-            <div class="table-responsive">
-              <%= f.input :body, label: false,  autofocus: true, autocomplete: "body", require: true ,
-                  :as => :trix_editor, :input_html => { class: "form-trix-dark" , placeholder:"Cuerpo Del Articulo Por Crear" , 'rows' => 5, 'cols' => 29 } %>
+  <div class="col-md-12">
+    <div class="jumbotron category-form-dark space-a">
+      <div class="">
+        <%= simple_form_for([@article, @comment] , html: { class: 'new-C-dark' } ) do |f| %>
+         <%= f.error_notification %>
+          <div class="table-responsive">
+            <%= f.input :body, label: false,  autofocus: true, autocomplete: "body", require: true ,
+                :as => :trix_editor, :input_html => { placeholder:"Cuerpo Del Comentario Para Registrar" , 'rows' => 5, 'cols' => 29 } %>
+          </div>&nbsp;
+          <div class="from-group row">
+            <div class="container text-center">
+              <%= f.button :submit, "Comentar",  class: "btn btn-info col-md-3" %>
             </div>
-            <div class="form-group ">
-              <%= f.button :submit, "Comentar", class: "btn btn-info btn-block form-btn-dark" %>
-            </div>
-          <% end %>
-        </div>
-      </fieldset>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
