@@ -1,10 +1,9 @@
 <div class="row">
   <div class="col-md-8 offset-md-2">
-    <div class="space-a comment-Edit-dark">
+    <div class="jumbotron space-a comment-new-dark">
       <fieldset>
-        <h1 class="text-center space-title form-title"> <%= "#{@article.title}" %></h1>
-        <div class="col-12">
-          <%= simple_form_for([@article, @comment] , html: { class: 'comment-form-Edit-dark' } ) do |f| %>
+        <div class="">
+          <%= simple_form_for([@article, @comment] , html: { class: 'new-comment-dark' } ) do |f| %>
            <%= f.error_notification %>
             <div class="table-responsive">
               <%= f.input :body, label: false,  autofocus: true, autocomplete: "body", require: true ,

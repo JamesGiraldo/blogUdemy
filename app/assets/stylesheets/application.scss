@@ -185,7 +185,7 @@ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.acti
 a{
   text-decoration: none;
 }
-.UL{
+ul{
   list-style-type: none;
 }
 
@@ -636,9 +636,13 @@ body.dark .Show-H1-dark{
   color: white !important;
 }
 /* Formulario de commentarios */
-body.dark .form-comment-dark{
+body.dark .new-comment-dark{
   color: black !important;
   background: white !important;
+}
+body.dark .comment-new-dark{
+  background: white !important;
+  color: $color-f;
 }
 //Editar
 body.dark .comment-Edit-dark{
@@ -647,6 +651,7 @@ body.dark .comment-Edit-dark{
 }
 body.dark .comment-form-Edit-dark{
   background: white !important;
+  color: black !important;
 }
 //FIN Editar
 body.dark .form-btn-dark{
