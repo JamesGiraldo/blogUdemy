@@ -200,6 +200,10 @@ body.dark .comments-container {
 	margin: 60px auto 15px;
 	width: 100%;
 }
+body.dark .dark-comentarios{
+  background: black !important;
+  border: 1px solid white;
+}
 
 .comments-container h1 {
 	font-size: 36px;
@@ -326,6 +330,7 @@ body.dark .comments-container {
 	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 	box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  background: white !important;
 }
 
 .comments-list .comment-box:before, .comments-list .comment-box:after {

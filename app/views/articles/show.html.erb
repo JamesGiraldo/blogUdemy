@@ -28,15 +28,16 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <div class="show-categories-dark">        
+      <div class="show-categories-dark">
         <h3 class="H3">Categorias:</h3>
         <% @article.categories.each do |category| %>
             <span class="badge badge-primary show-badge-dark"><strong><%= category.name %></strong></span>
         <%end%>
       </div>
     </div>
-  </div><hr class="HR-dark">
-  <div class="">
+  </div>
+</div>
+  <div class="jumbotron space-a dark-comentarios">
     <div class="comments-container comments-dark">
       <h1 class="Show-H1-dark"><i class="fa fa-comments"></i> Comentarios <a href="#" class="Show-H1-dark">Blog.com</a></h1>
       <ul id="comments-list comment-list-dark" class="comments-list UL">
@@ -66,7 +67,6 @@
         <%end%>
       </div>
     </div><hr class="HR-dark">
-  </div>
   <% if user_signed_in? %>
     <div class="">
       <%= render "comments/form" , comment: @comment%>
