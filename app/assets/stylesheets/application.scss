@@ -703,7 +703,11 @@ body.dark .article-form-dark{
 body.dark .category-form-dark{
   background: white !important;
 }
-body.dark .new-C-dark{
+
+body.dark .container{
   background: white !important;
   color: black !important;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  border-radius: 10px;
 }
