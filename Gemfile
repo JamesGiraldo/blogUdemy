@@ -70,6 +70,8 @@ gem 'devise'
 gem "table_print"
 # Editor trix
 gem 'trix', '~> 0.11.1'
+# editor 
+gem 'ckeditor_rails'
 # Acortar Texto y siga siendo html
 gem 'truncate_html'
 # Imagenes

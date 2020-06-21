@@ -24,6 +24,7 @@
 //= require metisMenu/jquery.metisMenu.js
 //= require inspinia.js
 //= require trix
+//= require ckeditor-jquery
 //= require_tree .
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();

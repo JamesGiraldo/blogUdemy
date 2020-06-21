@@ -4,9 +4,8 @@
       <div class="">
         <%= simple_form_for([@article, @comment] ) do |f| %>
          <%= f.error_notification %>
-          <div class="table-responsive">
-            <%= f.input :body, label: false,  autofocus: true, autocomplete: "body", require: true ,
-                :as => :trix_editor, :input_html => { placeholder:"Cuerpo Del Comentario Para Registrar" , 'rows' => 5, 'cols' => 29 } %>
+          <div class="from-group row">
+            <%= f.input :body, label: false, :input_html => { class:"ckeditor" } %>
           </div>&nbsp;
           <div class="from-group row">
             <div class="container text-center">

@@ -6,9 +6,8 @@
         <div class="col-12">
           <%= simple_form_for([@article, @comment] , html: { class: 'comment-form-Edit-dark' } ) do |f| %>
            <%= f.error_notification %>
-            <div class="table-responsive">
-              <%= f.input :body, label: false,  autofocus: true, autocomplete: "body", require: true ,
-                  :as => :trix_editor, :input_html => { class: "form-trix-dark" , placeholder:"Cuerpo Del Articulo Por Crear" , 'rows' => 5, 'cols' => 29 } %>
+            <div class="from-group row">
+              <%= f.input :body, label: false, :input_html => { class:"ckeditor" } %>
             </div>
             <div class="form-group ">
               <%= f.button :submit, "Comentar", class: "btn btn-info btn-block form-btn-dark" %>

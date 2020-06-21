@@ -64,6 +64,8 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
+    ckeditor_rails (4.10.0)
+      railties (>= 3.0)
     climate_control (0.2.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -296,6 +298,7 @@ DEPENDENCIES
   bootstrap-kaminari-views (~> 0.0.5)
   byebug
   capybara (>= 2.15)
+  ckeditor_rails
   coffee-rails (~> 4.2)
   country_select
   devise
